@@ -9,6 +9,7 @@ class fig(
 
   $executable = undef,
   $kernel = downcase($::kernel),
+  $user = undef,
   $version = undef,
 ) {
 
@@ -21,13 +22,13 @@ class fig(
     exec {
       'install-fig':
         command => "curl -L ${download_url} > ${executable}",
-        user    => $::boxen_user,
+        user    => $user,
         unless  => "test -x ${executable} && ${executable} --version | grep '\\b${version}\\b'",
         notify  => Exec['fix-fig-permissions'];
 
       'fix-fig-permissions':
         command     => "chmod a+x ${executable}",
-        user        => 'root',
+        user        => $user,
         require     => Exec['install-fig'],
         refreshonly => true;
     }
