@@ -15,6 +15,7 @@ class fig(
 
   validate_re($ensure, '^(present|absent)$')
   validate_re($kernel, '^(darwin|linux)$')
+  validate_string($executable, $user, $version)
 
   if $ensure == 'present' {
     $download_url = "https://github.com/orchardup/fig/releases/download/${version}/${kernel}"
