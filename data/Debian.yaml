@@ -1,0 +1,3 @@
+---
+fig::executable: '/usr/local/bin/fig'
+fig::user:       'root'
