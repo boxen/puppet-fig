@@ -18,7 +18,7 @@ class fig(
   validate_string($executable, $user, $version)
 
   if $ensure == 'present' {
-    $download_url = "https://github.com/orchardup/fig/releases/download/${version}/${kernel}"
+    $download_url = "https://github.com/docker/fig/releases/download/${version}/${kernel}"
 
     exec {
       'install-fig':

@@ -14,7 +14,7 @@ describe "fig" do
   context "ensure => present" do
     it do
       should contain_exec("install-fig").with({
-        :command => "curl -L https://github.com/orchardup/fig/releases/download/0.5.2/darwin > /test/boxen/bin/fig",
+        :command => "curl -L https://github.com/docker/fig/releases/download/0.5.2/darwin > /test/boxen/bin/fig",
         :user    => "testuser",
         :unless  => "test -x /test/boxen/bin/fig && /test/boxen/bin/fig --version | grep '\\b0.5.2\\b'",
       })
