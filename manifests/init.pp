@@ -8,21 +8,21 @@ class fig(
   $ensure = undef,
 
   $executable = undef,
-  $kernel = downcase($::kernel),
   $user = undef,
   $version = undef,
 ) {
 
   validate_re($ensure, '^(present|absent)$')
-  validate_re($kernel, '^(darwin|linux)$')
+  validate_re($::hardwaremodel, '^(x86_64)$')
+  validate_re($::kernel, '^(Darwin|Linux)$')
   validate_string($executable, $user, $version)
 
   if $ensure == 'present' {
-    $download_url = "https://github.com/docker/fig/releases/download/${version}/${kernel}"
+    $download_url = "https://github.com/docker/fig/releases/download/${version}"
 
     exec {
       'install-fig':
-        command => "curl -L ${download_url} > ${executable}",
+        command => "curl -L ${download_url}/fig-${::kernel}-${::hardwaremodel} > ${executable}",
         user    => $user,
         unless  => "test -x ${executable} && ${executable} --version | grep '\\b${version}\\b'",
         notify  => Exec['fix-fig-permissions'];
