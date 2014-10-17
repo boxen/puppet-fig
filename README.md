@@ -1,5 +1,7 @@
 # Fig Puppet Module for Boxen
 
+[![Build Status](https://travis-ci.org/boxen/puppet-fig.svg)](https://travis-ci.org/boxen/puppet-fig)
+
 Installs [Fig](http://www.fig.sh), fast and isolated development environments using [Docker](https://www.docker.io/).
 
 ## Usage
