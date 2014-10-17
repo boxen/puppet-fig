@@ -11,9 +11,11 @@ include fig
 ## Required Puppet Modules
 
 * `boxen`
+* `docker`
 * `homebrew`
 * `ripienaar/puppet-module-data`
 * `stdlib`
+* `virtualbox`
 
 ## Development
 

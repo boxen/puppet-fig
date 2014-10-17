@@ -1,5 +1,7 @@
 mod "boxen",       "3.6.0", :github_tarball => "boxen/puppet-boxen"
+mod "docker",      "0.6.0", :github_tarball => "jamieconnolly/puppet-docker"
 mod "homebrew",    "1.6.0", :github_tarball => "boxen/puppet-homebrew"
 mod "module_data", "0.0.1", :github_tarball => "ripienaar/puppet-module-data"
 mod "repository",  "2.2.0", :github_tarball => "boxen/puppet-repository"
 mod "stdlib",      "4.1.0", :github_tarball => "puppetlabs/puppetlabs-stdlib"
+mod "virtualbox",  "1.0.0", :github_tarball => "boxen/puppet-virtualbox"

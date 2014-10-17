@@ -13,6 +13,8 @@ describe "fig" do
 
   context "ensure => present" do
     it do
+      should include_class("docker")
+
       should contain_exec("install-fig").with({
         :command => "curl -L https://github.com/docker/fig/releases/download/1.0.0/fig-Darwin-x86_64 > /test/boxen/bin/fig",
         :user    => "testuser",
@@ -38,11 +40,11 @@ describe "fig" do
     let(:params) { test_params.merge(:ensure => "whatever") }
 
     it do
-      expect { should compile }.to raise_error(Puppet::Error, /validate_re.*?does not match/)
+      expect { should compile }.to raise_error(Puppet::Error, /Fig#ensure must be present or absent!/)
     end
   end
 
-  context "hardwaremodel => whatever" do
+  context "::hardwaremodel => whatever" do
     let(:facts) { default_test_facts.merge(:hardwaremodel => "whatever") }
 
     it do
@@ -50,7 +52,7 @@ describe "fig" do
     end
   end
 
-  context "kernel => whatever" do
+  context "::kernel => whatever" do
     let(:facts) { default_test_facts.merge(:kernel => "whatever") }
 
     it do
