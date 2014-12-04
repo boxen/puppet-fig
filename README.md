@@ -21,7 +21,6 @@ rather than depending on this module to update for you. You can update fig by
 overriding the version value with Hiera:
 
 ``` yaml
----
 fig::version: '1.0.0'
 ```
 
